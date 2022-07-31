@@ -1,0 +1,160 @@
+<!-- simple html page with a title and two centered labeled input fields  -->
+<html>
+
+<head>
+    <title>IP Format Converter</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="script.js"></script>
+</head>
+
+<body>
+
+    <!-- Centered title -->
+    <h1>IP Format Converter</h1>
+
+    <hr>
+
+    <h2>Input</h2>
+    <div>
+        <form autocomplete="off">
+            <div class="table">
+                <div class="label-group">
+                    <div  class="label"><label for="ip-field">IP: </label></div>
+                    <div  class="label"><label for="ip-field">IP decimal: </label></div>
+                    <div  class="label"><label for="ip-field">IP hexadecimal: </label></div>
+                    <div  class="label"><label for="ip-field">IP binary: </label></div>
+                </div>
+                <div class="input-group">
+                    <div class="input"><input type="text" name="ip-field" id="ip-field"></div>
+                    <div class="input"><input type="text" name="ip-decimal-field" id="ip-decimal-field"></div>
+                    <div class="input"><input type="text" name="ip-hexadecimal-field" id="ip-hexadecimal-field"></div>
+                    <div class="input"><input type="text" name="ip-binary-field" id="ip-binary-field"></div>
+                </div>
+            </div>
+            <div class="center">
+                <label for="ip-format-field" class="label">Force IP format: </label>
+                <span class="radio-block">
+                    <input type="radio" name="ip-format-field" id="ip-format-field-ipv4" value="ipv4" checked>
+                    <label for="ip-format-field-ipv4">IPv4</label>
+                </span>
+                <span class="radio-block">
+                    <input type="radio" name="ip-format-field" id="ip-format-field-ipv6" value="ipv6">
+                    <label for="ip-format-field-ipv6">IPv6</label>
+                </span>
+            </div>
+            <br>
+            <div class="center">
+                <div style="display:block;">
+                    <label for="ip-format-field" class="label">Valid input for:</label>
+                    <span class="checkbox-block">
+                        <label for="valid-ipv4-field">IPv4</label>
+                        <input type="checkbox" name="valid-ipv4-field" id="valid-ipv4-field" disabled>
+                    </span>
+                    <span class="checkbox-block">
+                        <label for="valid-ipv6-field">IPv6</label>
+                        <input type="checkbox" name="valid-ipv6-field" id="valid-ipv6-field" disabled>
+                    </span>
+                </div>
+            </div>
+            <br>
+            <div class="center">
+                <input type="button" value="Reset" id="reset">
+                <input type="button" value="Convert" id="convert">
+            </div>
+        </form>
+
+    </div>
+
+    <hr>
+
+    <h2>Output</h2>
+    <div>
+        <div class="result">
+            <span class="label">Normal:</span>
+            <span class="value" id="ip-to-normal-field"></span>
+        </div>
+        <div class="result">
+            <span class="label">Decimal:</span>
+            <span class="value" id="ip-to-decimal-field"></span>
+        </div>
+        <div class="result">
+            <span class="label">Hexadecimal:</span>
+            <span class="value" id="ip-to-hexadecimal-field"></span>
+        </div>
+        <div class="result">
+            <span class="label">Binary:</span>
+            <span class="value" id="ip-to-binary-field"></span>
+        </div>
+    </div>
+
+    <br>
+    <hr>
+
+    <div class="footer">
+        <span>Created by <a style="font-weight:bold;" href="https://github.com/Pandidoux" target="_blank">Pandidoux</a></span>
+        <br>
+        <span>Github project <a style="font-weight:bold;" href="https://github.com/Pandidoux/ip-format-converter" target="_blank">IP Format Converter</a></span>
+    </div>
+
+    <script>
+        document.getElementById("ip-field").addEventListener("keyup", function (event) {
+            start_conversion_from('ip');
+        });
+        document.getElementById('ip-decimal-field').addEventListener('keyup', function(event){
+            start_conversion_from('decimal');
+        });
+        document.getElementById('ip-hexadecimal-field').addEventListener('keyup', function(event){
+            start_conversion_from('hexadecimal');
+        });
+        document.getElementById('ip-binary-field').addEventListener('keyup', function(event){
+            start_conversion_from('binary');
+        });
+        document.getElementById('ip-format-field-ipv4').addEventListener('click', function(event){
+            if(document.getElementById('ip-field').value != '') {
+                start_conversion_from('ip');
+            }
+            if(document.getElementById('ip-decimal-field').value != '') {
+                start_conversion_from('decimal');
+            }
+            if(document.getElementById('ip-hexadecimal-field').value != '') {
+                start_conversion_from('hexadecimal');
+            }
+            if(document.getElementById('ip-binary-field').value != '') {
+                start_conversion_from('binary');
+            }
+        });
+        document.getElementById('ip-format-field-ipv6').addEventListener('click', function(event){
+            if(document.getElementById('ip-field').value != '') {
+                start_conversion_from('ip');
+            }
+            if(document.getElementById('ip-decimal-field').value != '') {
+                start_conversion_from('decimal');
+            }
+            if(document.getElementById('ip-hexadecimal-field').value != '') {
+                start_conversion_from('hexadecimal');
+            }
+            if(document.getElementById('ip-binary-field').value != '') {
+                start_conversion_from('binary');
+            }
+        });
+        document.getElementById('reset').addEventListener('click', function(event){
+            reset();
+        });
+        document.getElementById('convert').addEventListener('click', function(event){
+            if(document.getElementById('ip-field').value != '') {
+                start_conversion_from('ip');
+            }
+            if(document.getElementById('ip-decimal-field').value != '') {
+                start_conversion_from('decimal');
+            }
+            if(document.getElementById('ip-hexadecimal-field').value != '') {
+                start_conversion_from('hexadecimal');
+            }
+            if(document.getElementById('ip-binary-field').value != '') {
+                start_conversion_from('binary');
+            }
+        });
+    </script>
+</body>
+
+</html>
