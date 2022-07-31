@@ -4,6 +4,8 @@
 
 Let you convert IPv4 and IPv6 to multiple number format.
 
+Use directly here https://pandidoux.github.io/ip-format-converter/
+
 Support IPv4 and IPv6 for input and output.
 
 Verify if input correspond to a valid IPv4 or IPv6.
